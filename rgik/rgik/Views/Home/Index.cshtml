@@ -1,4 +1,6 @@
 ﻿@model rgik.ViewModels.HomeViewModel
+@using rgik.Infrastucture
+
 @{
     ViewBag.Title = "Index";
 }
@@ -12,7 +14,7 @@
             <p>
                 Nazwa gry : @windows.NazwaGry
                 Opis : @windows.Opis
-                <img src="@Url.ObrazkiKategoriaSciezka(windows.NazwaPlikuObrazka)"/>
+                <img src="@Url.ObrazkiSciezka(windows.NazwaPlikuObrazka)"/>
             </p>
 
         </li>
