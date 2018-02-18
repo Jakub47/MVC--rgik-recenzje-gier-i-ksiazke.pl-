@@ -1,7 +1,40 @@
-﻿@model IEnumerable<rgik.Models.Gra>
+﻿@model rgik.ViewModels.HomeViewModel
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
+<ul>
+    @foreach (var windows in Model.Windows)
+    {
+        <li>
+            <p>
+                Nazwa gry : @windows.NazwaGry
+                Opis : @windows.Opis
+                <img src="@Url.ObrazkiKategoriaSciezka(windows.NazwaPlikuObrazka)"/>
+            </p>
+
+        </li>
+    }
+    <shadow></shadow>
+    @foreach (var gryLosowe in Model.GryLosowe)
+    {
+        <li>
+            <p>
+                <a href="@Url.Action("Szczegoly","Gra",new { nazwa = gryLosowe.NazwaGry.ToLower()})">@gryLosowe.Parametry.ToString()</a>
+                Wiem że ta sama gra,ale @gryLosowe.DataWydania
+            </p>
+        </li>
+    }
+    <shadow></shadow>
+    @foreach (var ksiazkiLosowe in Model.KsiazkaLosowe)
+    {
+        <li>
+            <p>
+                <a href="@Url.Action("Szczegoly","Ksiazka",new { nazwa = ksiazkiLosowe.NazwaKsiazki.ToLower() })">Ksiazk Nazwa @ksiazkiLosowe.NazwaKsiazki</a>
+                Opis: @ksiazkiLosowe.Opis
+            </p>
+        </li>
+    }
+</ul>

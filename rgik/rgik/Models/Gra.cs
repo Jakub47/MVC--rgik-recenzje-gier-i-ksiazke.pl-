@@ -32,7 +32,8 @@ namespace rgik.Models
 
 
         public Parametry Parametry { get; set; }
-        public PlusyIMinusy PlusyIMinusy { get; set; }
+        public List<string> Plusy { get; set; }
+        public List<string> Minusy { get; set; }
 
         [Required(ErrorMessage = "Wprowadz opis")]
         public string Opis { get; set; }
@@ -52,8 +53,12 @@ namespace rgik.Models
         SinglePlayerAndMultiPlayer
     }
 
-    public struct Parametry
+    public class Parametry
     {
+        public Parametry()
+        {
+
+        }
         public Parametry(string procesor,string kartaGraficzna, int ram,int pamiec)
         {
             this.procesor = procesor;
@@ -62,10 +67,10 @@ namespace rgik.Models
             this.pamiec = pamiec;
         }
 
-        public string procesor;
-        public string kartaGraficzna;
-        public int ram;
-        public int pamiec;
+        public string procesor { get; set; }
+        public string kartaGraficzna { get; set; }
+        public int ram { get; set; }
+        public int pamiec { get; set; }
 
         public override string ToString()
         {
@@ -75,17 +80,5 @@ namespace rgik.Models
                 + "Pamiec " + pamiec + "\n";
         }
 
-    }
-
-    public struct PlusyIMinusy
-    {
-        public ICollection<string> Plusy { get; set; }
-        public ICollection<string> Minusy { get; set; }
-
-        public PlusyIMinusy(ICollection<string> plusy, ICollection<string> minusy)
-        {
-            Plusy = plusy;
-            Minusy = minusy;
-        }
     }
 }

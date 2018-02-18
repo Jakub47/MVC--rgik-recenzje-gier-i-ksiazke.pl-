@@ -1,7 +1,9 @@
-﻿using rgik.Models;
+﻿using rgik.Migrations;
+using rgik.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
@@ -11,16 +13,10 @@ namespace rgik.DAL
     /// <summary>
     ///  Define records
     /// </summary>
-    public class rgikInitializer : DropCreateDatabaseAlways<rgikContext>
+    public class rgikInitializer : MigrateDatabaseToLatestVersion<rgikContext,Configuration>
     {
-        protected override void Seed(rgikContext context)
-        {
-            SeedRgikData(context);
-            base.Seed(context);
-        }
 
-
-        private void SeedRgikData(rgikContext context)
+        public static void SeedRgikData(rgikContext context)
         {
             var gatunki = new List<Gatunek>
             {
@@ -35,7 +31,7 @@ namespace rgik.DAL
                 new Gatunek() { GatunekId = 9, NazwaGatunku = "Fantastyka",NazwaPlikuObrazkaGatunku = "fantastyka.png"},
                 new Gatunek() { GatunekId = 10, NazwaGatunku = "Historyczne",NazwaPlikuObrazkaGatunku = "historia.png"}
             };
-            gatunki.ForEach(g => context.Gatunek.Add(g));
+            gatunki.ForEach(g => context.Gatunek.AddOrUpdate(g));
             context.SaveChanges();
 
             var platformy = new List<Platforma>
@@ -45,7 +41,7 @@ namespace rgik.DAL
                 new Platforma() {PlatformaId = 3,NazwaPlatformy = "Konsola" },
                 new Platforma() {PlatformaId = 4,NazwaPlatformy = "Telefon" },
             };
-            platformy.ForEach(p => context.Platforma.Add(p));
+            platformy.ForEach(p => context.Platforma.AddOrUpdate(p));
             context.SaveChanges();
 
             var gry = new List<Gra>
@@ -53,7 +49,7 @@ namespace rgik.DAL
                 new Gra() { GraId=1,GatunekId=1,PlatformaId=1,NazwaGry="Gothic",Producent = "Piranha Bytes",Wydawca="JoWood",
                 WydawcaPL="CDP",DataWydania = new DateTime(2002,11,29),DataWydaniaWPolsce = new DateTime(2003,04,16),
                 Ocena=1,TrybGry=TrybGry.SinglePlayer,NazwaPlikuObrazka="gothic.png",Parametry = new Parametry("pentium 3 700 mhz","GeForce2 Ti",256,3),
-                PlusyIMinusy = new PlusyIMinusy(new List<string> { "Długość","Fabuła","Interakcja","Ilosc Elementow" },new List<string> { "Bugi","Poziom trudnosci" }),Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et pulvinar est. Phasellus ac eleifend turpis, sed vehicula justo. Integer at suscipit tortor, nec malesuada nunc. Phasellus vel volutpat tortor. Suspendisse elit felis, auctor vitae maximus pulvinar, mollis et lorem. Maecenas varius convallis odio, ut tristique leo placerat in. Vivamus eget mauris ultrices, ornare mi eu, placerat nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ut ullamcorper purus, euismod sodales sapien. Sed neque turpis, bibendum at urna eu, hendrerit tincidunt arcu. Duis rhoncus faucibus tortor, ut hendrerit dolor ornare id. Maecenas lacinia aliquam cursus. Morbi dapibus interdum feugiat."+
+                Plusy = new List<string> (){ "Długość","Fabuła","Interakcja","Ilosc Elementow" }, Minusy = new List<string> { "Bugi","Poziom trudnosci" },Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et pulvinar est. Phasellus ac eleifend turpis, sed vehicula justo. Integer at suscipit tortor, nec malesuada nunc. Phasellus vel volutpat tortor. Suspendisse elit felis, auctor vitae maximus pulvinar, mollis et lorem. Maecenas varius convallis odio, ut tristique leo placerat in. Vivamus eget mauris ultrices, ornare mi eu, placerat nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ut ullamcorper purus, euismod sodales sapien. Sed neque turpis, bibendum at urna eu, hendrerit tincidunt arcu. Duis rhoncus faucibus tortor, ut hendrerit dolor ornare id. Maecenas lacinia aliquam cursus. Morbi dapibus interdum feugiat."+
 
                 "Ut fermentum mi dolor. Etiam ac tortor nunc. Proin ac laoreet elit. Nam eget nulla et diam euismod aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse fermentum justo et egestas commodo. Nunc mi lacus, sollicitudin nec faucibus ut, convallis eu diam. Sed vehicula sed lacus id pretium. Donec sollicitudin quis neque ac ultrices. Suspendisse vitae tempus dolor. In gravida ullamcorper dolor id rhoncus. Sed quis dolor tristique, elementum lectus sed, placerat nisl. Nullam ac gravida justo."+
 
@@ -68,7 +64,7 @@ namespace rgik.DAL
                 new Gra() { GraId=2,GatunekId=2,PlatformaId=2,NazwaGry="Wiedzmin",Producent = "CDP",Wydawca="CDP",
                 WydawcaPL="CDP",DataWydania = new DateTime(2007,10,26),DataWydaniaWPolsce = new DateTime(2007,10,26),
                 Ocena=1,TrybGry=TrybGry.SinglePlayer,NazwaPlikuObrazka="wiedzmin.png",Parametry = new Parametry("Intel Pentium 4 2.4","GeForce 6660",1024,8),
-                PlusyIMinusy = new PlusyIMinusy(new List<string> { "Grafika","Fabuła","Dubbing","Wielkosc" },new List<string> { "Walka","Bugi","Niewiedza"}),Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et pulvinar est. Phasellus ac eleifend turpis, sed vehicula justo. Integer at suscipit tortor, nec malesuada nunc. Phasellus vel volutpat tortor. Suspendisse elit felis, auctor vitae maximus pulvinar, mollis et lorem. Maecenas varius convallis odio, ut tristique leo placerat in. Vivamus eget mauris ultrices, ornare mi eu, placerat nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ut ullamcorper purus, euismod sodales sapien. Sed neque turpis, bibendum at urna eu, hendrerit tincidunt arcu. Duis rhoncus faucibus tortor, ut hendrerit dolor ornare id. Maecenas lacinia aliquam cursus. Morbi dapibus interdum feugiat."+
+                Plusy = new List<string> (){ "Grafika","Fabuła","Dubbing","Wielkosc" },Minusy = new List<string> { "Walka","Bugi","Niewiedza"},Opis = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et pulvinar est. Phasellus ac eleifend turpis, sed vehicula justo. Integer at suscipit tortor, nec malesuada nunc. Phasellus vel volutpat tortor. Suspendisse elit felis, auctor vitae maximus pulvinar, mollis et lorem. Maecenas varius convallis odio, ut tristique leo placerat in. Vivamus eget mauris ultrices, ornare mi eu, placerat nisi. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nam ut ullamcorper purus, euismod sodales sapien. Sed neque turpis, bibendum at urna eu, hendrerit tincidunt arcu. Duis rhoncus faucibus tortor, ut hendrerit dolor ornare id. Maecenas lacinia aliquam cursus. Morbi dapibus interdum feugiat."+
 
                 "Ut fermentum mi dolor. Etiam ac tortor nunc. Proin ac laoreet elit. Nam eget nulla et diam euismod aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse fermentum justo et egestas commodo. Nunc mi lacus, sollicitudin nec faucibus ut, convallis eu diam. Sed vehicula sed lacus id pretium. Donec sollicitudin quis neque ac ultrices. Suspendisse vitae tempus dolor. In gravida ullamcorper dolor id rhoncus. Sed quis dolor tristique, elementum lectus sed, placerat nisl. Nullam ac gravida justo."+
                 
@@ -78,7 +74,7 @@ namespace rgik.DAL
                 ,OpisSkrocony = "WITCHER WITCHER !!!"
                 ,SzacowanaDlugoscGry = 100,}
             };
-            gry.ForEach(g => context.Gra.Add(g));
+            gry.ForEach(g => context.Gra.AddOrUpdate(g));
             try
             {
                 context.SaveChanges();
@@ -107,7 +103,7 @@ namespace rgik.DAL
                 Opis="Seget nulla et diam euismod aliquet. Interdum et malesuada fames ac ante ipsum primis in faucibus. Suspendisse fermentum justo et egestas commodo. Nunc mi lacus, sollicitudin nec faucibus ut, convallis eu diam. Sed vehicula sed lacus id pretium. Donec ",
                 OpisSkrocony="Inni to ksiązka o tematuce ...",WadyIZalety = new WadyIZalety(new List<string> { "wciagajac","dziwna","wyjatkowa"},new List<string> { "czsami zbugienie","na wyrost"})}
             };
-            ksiazki.ForEach(k => context.Ksiazka.Add(k));
+            ksiazki.ForEach(k => context.Ksiazka.AddOrUpdate(k));
             try
             {
                 context.SaveChanges();

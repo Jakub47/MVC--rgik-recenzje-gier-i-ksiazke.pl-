@@ -14,6 +14,12 @@ namespace rgik
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "StronyStatyczne",
+                url: "recenzja/{nazwa}",
+                defaults: new { controller = "Home", action = "StronyStatyczne" } //Czyli tak żeby taki url się pojawił wejdź do tego kontrollera i do tej akcji
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
