@@ -159,7 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlatformaController.cs" />
     <Compile Include="DAL\rgikContext.cs" />
     <Compile Include="DAL\rgikInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -209,6 +211,8 @@
     <Content Include="Views\Home\Konsole.cshtml" />
     <Content Include="Views\Home\Horrory.cshtml" />
     <Content Include="Views\Home\Fantastyka.cshtml" />
+    <Content Include="Views\Shared\_RandomGames.cshtml" />
+    <Content Include="Views\Gra\Recenzja.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -218,6 +222,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Platforma\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

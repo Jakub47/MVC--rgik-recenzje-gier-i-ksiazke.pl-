@@ -1,0 +1,18 @@
+﻿@model IEnumerable<rgik.Models.Gra>
+@using rgik.Infrastucture
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        @foreach (var game in Model)
+        {
+            <a  href="@Url.Action("Recenzja","Gra",new { nazwa = game.NazwaGry })" style="text-decoration: none;">
+                <div class="col-md-4">
+                    <h2>@game.NazwaGry</h2>
+                    <img src="@Url.ObrazkiSciezka(game.NazwaPlikuObrazka)" />
+                    <p>@game.OpisSkrocony</p>
+                </div>
+            </a>
+        }
+    </div>
+</div> <!-- /container -->

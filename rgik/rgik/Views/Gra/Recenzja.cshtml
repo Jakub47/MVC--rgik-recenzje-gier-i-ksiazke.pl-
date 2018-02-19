@@ -1,0 +1,27 @@
+﻿@model rgik.Models.Gra
+@using rgik.Infrastucture
+
+@{
+    ViewBag.Title = "Recenzja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>@Model.NazwaGry</h2>
+
+<img src="@Url.ObrazkiSciezka(Model.NazwaPlikuObrazka)" />
+
+<p>
+    @Model.Opis
+</p>
+
+
+<ul>
+    <li>@Model.Parametry.ToString()</li>
+    <li><br/></li>
+    <li>@Model.SzacowanaDlugoscGry</li>
+    <li><br /></li>
+    <li>@Model.Plusy</li>
+    <li><br /></li>
+    <li>@Model.Minusy</li>
+</ul>

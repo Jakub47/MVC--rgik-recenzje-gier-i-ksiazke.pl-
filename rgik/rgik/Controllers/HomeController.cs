@@ -11,25 +11,12 @@ namespace rgik.Controllers
 {
     public class HomeController : Controller
     {
-
-
-        // GET: Home
         private rgikContext db = new rgikContext();
 
         public ActionResult Index()
         {
-            var dwieLosoweGry = db.Gra.OrderBy(g => Guid.NewGuid()).Take(2).ToList();
-            var dwieLosoweKsiazki = db.Ksiazka.OrderBy(k => Guid.NewGuid()).Take(2).ToList();
-            var windows = db.Gra.Where(w => w.PlatformaId == 1).ToList();
-
-            var vm = new HomeViewModel
-            {
-                Windows = windows,
-                GryLosowe = dwieLosoweGry,
-                KsiazkaLosowe = dwieLosoweKsiazki
-            };
-
-            return View(vm);
+            var windows = db.Gra.ToList();
+            return View(windows);
         }
 
         public ActionResult StronyStatyczne(string nazwa)
@@ -38,3 +25,15 @@ namespace rgik.Controllers
         }
     }
 }
+
+
+//var dwieLosoweGry = db.Gra.OrderBy(g => Guid.NewGuid()).Take(2).ToList();
+//var dwieLosoweKsiazki = db.Ksiazka.OrderBy(k => Guid.NewGuid()).Take(2).ToList();
+//var windows = db.Gra.Where(w => w.PlatformaId == 1).ToList();
+
+//var vm = new HomeViewModel
+//{
+//    Windows = windows,
+//    GryLosowe = dwieLosoweGry,
+//    KsiazkaLosowe = dwieLosoweKsiazki
+//};
