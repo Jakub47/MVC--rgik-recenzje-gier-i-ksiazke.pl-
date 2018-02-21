@@ -21,7 +21,19 @@ namespace rgik.Controllers
 
         public ActionResult StronyStatyczne(string nazwa)
         {
-            return View(nazwa); //My tutaj nie przekazujemy obiektu jaki ma zostać wyświetlnoy tylko jaki widok ma zostać wyświetlnoy
+            string search = "";
+            if (nazwa.Equals("Windows")) search = "PC";
+            var platforma = db.Platforma.Where(p => p.NazwaPlatformy.Equals(search)).ToList();
+
+            //actions = db.Actions.Where(a => search.Any(s => a.Agent.Contains(s)));
+            var gry = platforma.Select(a => a.Gry).ToList();     
+
+        //var cutomers = from c in Customers
+        //where cities.Contains(c.City)
+        //select c;
+        
+            Console.WriteLine("some Code");
+            return View(nazwa,gry); //My tutaj nie przekazujemy obiektu jaki ma zostać wyświetlnoy tylko jaki widok ma zostać wyświetlnoy
         }
     }
 }
@@ -37,3 +49,13 @@ namespace rgik.Controllers
 //    GryLosowe = dwieLosoweGry,
 //    KsiazkaLosowe = dwieLosoweKsiazki
 //};
+
+
+
+//int element = 0; var gry = new List<Gra>();
+//foreach(var item in db.Gra)
+//{
+//    if (item.PlatformaId == platforma.ElementAt(element).PlatformaId)
+//        gry.Add(item);
+//    element++;
+//}
