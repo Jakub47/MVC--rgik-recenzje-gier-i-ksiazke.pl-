@@ -26,14 +26,19 @@ namespace rgik.Controllers
             var platforma = db.Platforma.Where(p => p.NazwaPlatformy.Equals(search)).ToList();
 
             //actions = db.Actions.Where(a => search.Any(s => a.Agent.Contains(s)));
-            var gry = platforma.Select(a => a.Gry).ToList();     
+            var gry = platforma.Select(a => a.Gry).ToList();
+            if (gry == null)
+            {
+                var gatunki = db.Gatunek.Where(g => g.NazwaGatunku == nazwa).ToList();
+                var ksiazki = gatunki.Select(a => a.Ksiazka).ToList();
+                return View(nazwa, ksiazki);
+            }
+            //var cutomers = from c in Customers
+            //where cities.Contains(c.City)
+            //select c;
 
-        //var cutomers = from c in Customers
-        //where cities.Contains(c.City)
-        //select c;
-        
             Console.WriteLine("some Code");
-            return View(nazwa,gry); //My tutaj nie przekazujemy obiektu jaki ma zostać wyświetlnoy tylko jaki widok ma zostać wyświetlnoy
+            return View(nazwa, gry); //My tutaj nie przekazujemy obiektu jaki ma zostać wyświetlnoy tylko jaki widok ma zostać wyświetlnoy
         }
     }
 }

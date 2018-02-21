@@ -111,3 +111,8 @@ C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--
 C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\obj\Debug\rgik.Migrations.InitialCreate.resources
 C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\obj\Debug\rgik.csproj.GenerateResource.Cache
 C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\obj\Debug\rgik.Migrations.zmodyfikowaniePola.resources
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\MvcSiteMapProvider.dll
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\MvcSiteMapProvider.WebActivator.dll
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\WebActivatorEx.dll
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\MvcSiteMapProvider.xml
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\MvcSiteMapProvider.WebActivator.xml

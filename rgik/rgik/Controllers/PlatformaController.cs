@@ -21,7 +21,7 @@ namespace rgik.Controllers
             var platforma = db.Platforma.Where(p => p.NazwaPlatformy == typPlatformy).ToList();
             var gry = db.Gra.Where(p => p.PlatformaId == platforma.OrderBy(k => Guid.NewGuid()).Single().PlatformaId).ToList();
 
-            return View(gry);
+            return View(typPlatformy,gry);
         }
     }
 }
