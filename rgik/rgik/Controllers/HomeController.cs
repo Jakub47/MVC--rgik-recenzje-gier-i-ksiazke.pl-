@@ -23,21 +23,24 @@ namespace rgik.Controllers
         {
             string search = "";
             if (nazwa.Equals("Windows")) search = "PC";
-            var platforma = db.Platforma.Where(p => p.NazwaPlatformy.Equals(search)).ToList();
+            //var platforma = db.Platforma.Where(p => p.NazwaPlatformy.Equals(search)).ToList();
 
-            //actions = db.Actions.Where(a => search.Any(s => a.Agent.Contains(s)));
-            var gry = platforma.Select(a => a.Gry).ToList();
+            ////actions = db.Actions.Where(a => search.Any(s => a.Agent.Contains(s)));
+            //List<Gra> gry = platforma.Select(a => a.Gry);
+
+            //List<Gra> gryv2 = gry.Cast();
+
+            //Console.WriteLine("some Code");
+
+            int platformaId = db.Platforma.Where(p => p.NazwaPlatformy.Equals(search)).Select(n => n.PlatformaId).Single();
+            List<Gra> gry = db.Gra.Where(g => g.PlatformaId == platformaId).ToList();
             if (gry == null)
             {
                 var gatunki = db.Gatunek.Where(g => g.NazwaGatunku == nazwa).ToList();
                 var ksiazki = gatunki.Select(a => a.Ksiazka).ToList();
                 return View(nazwa, ksiazki);
             }
-            //var cutomers = from c in Customers
-            //where cities.Contains(c.City)
-            //select c;
 
-            Console.WriteLine("some Code");
             return View(nazwa, gry); //My tutaj nie przekazujemy obiektu jaki ma zostać wyświetlnoy tylko jaki widok ma zostać wyświetlnoy
         }
     }
