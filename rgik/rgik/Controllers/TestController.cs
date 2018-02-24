@@ -1,7 +1,4 @@
-﻿using rgik.DAL;
-using rgik.Models;
-using rgik.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,11 +6,15 @@ using System.Web.Mvc;
 
 namespace rgik.Controllers
 {
-    public class HomeController : Controller
+    public class TestController : Controller
     {
-        private rgikContext db = new rgikContext();
-
+        // GET: Test
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult cos()
         {
             return View();
         }

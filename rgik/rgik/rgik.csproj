@@ -175,9 +175,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GatunekController.cs" />
     <Compile Include="Controllers\GraController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KsiazkaController.cs" />
     <Compile Include="Controllers\PlatformaController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\WerController.cs" />
     <Compile Include="DAL\rgikContext.cs" />
     <Compile Include="DAL\rgikInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,8 +189,9 @@
     </Compile>
     <Compile Include="Infrastucture\AppConfig.cs" />
     <Compile Include="Infrastucture\GatunkiDynamicNodeProvider.cs" />
-    <Compile Include="Infrastucture\rgikGrySzczegolyDynamicNodeProvider.cs" />
-    <Compile Include="Infrastucture\rgikKsiazkaSzczegolyDynamicNodeProvider.cs" />
+    <Compile Include="Infrastucture\GrySzczegolyDynamicNodeProvider.cs" />
+    <Compile Include="Infrastucture\KsiazkaSzczegolyDynamicNodeProvider.cs" />
+    <Compile Include="Infrastucture\TestDynamicNodeProvider.cs" />
     <Compile Include="Infrastucture\UrlHelpers.cs" />
     <Compile Include="Migrations\201802171633229_InitialCreate.cs" />
     <Compile Include="Migrations\201802171633229_InitialCreate.Designer.cs">
@@ -240,8 +245,11 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Test\cos.cshtml" />
+    <Content Include="Views\Wer\ops.cshtml" />
     <Content Include="Views\Platforma\Pozycje.cshtml" />
-    <Content Include="Views\Platforma\Windows.cshtml" />
+    <Content Include="Views\Gatunek\Elementy.cshtml" />
+    <Content Include="Views\Ksiazka\Recenzja.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

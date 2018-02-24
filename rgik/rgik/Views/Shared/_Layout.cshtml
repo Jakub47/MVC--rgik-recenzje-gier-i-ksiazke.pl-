@@ -23,23 +23,24 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav mr-auto">
+                <!--Zrobić jakiegoś drop-Down Lista !-->
                 <li class="nav-item ">
-                    <a class="nav-link text-primary" href="@Url.Action("StronyStatyczne","Home",new { nazwa = "Windows" })">Windows</a>
+                    <a class="nav-link text-primary" href="@Url.Action("Pozycje","Platforma",new { nazwa = "Windows" })">Windows</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="@Url.Action("StronyStatyczne","Home",new { nazwa = "Linux" })">Linux</a>
+                    <a class="nav-link text-danger" href="@Url.Action("Pozycje","Platforma",new { nazwa = "Linux" })">Linux</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-primary" href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Telefon" })">Telefony</a>
+                    <a class="nav-link text-primary" href="@Url.Action("Pozycje","Platforma", new { nazwa = "Telefon" })">Telefony</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-danger" href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Konsole" })">Konsole</a>
+                    <a class="nav-link text-danger" href="@Url.Action("Pozycje","Platforma", new { nazwa = "Konsole" })">Konsole</a>
                 </li>
             </ul>
 
             <div class="nav-link form-inline my-2 my-lg-0" style="">
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Horrory" })" style="text-decoration: none">Horrory</a>
-                <a href="@Url.Action("StronyStatyczne","Home", new { nazwa = "Fantastyka" })" style="text-decoration: none">Fantastyka</a>
+                <a href="@Url.Action("Elementy","Gatunek", new { nazwaGatunku = "Horrory" })" style="text-decoration: none">Horrory</a>
+                <a href="@Url.Action("Elementy","Gatunek", new { nazwaGatunku = "Fantastyka" })" style="text-decoration: none">Fantastyka</a>
             </div>
         </div>
     </nav>
@@ -48,10 +49,11 @@
 
 
     <main role="main">
-
+        
         <!--Main Section-->
         <div class="jumbotron bg-secondary">
             <div class="container">
+                <h3>@Html.MvcSiteMap().SiteMapPath()</h3>
                 <p>@RenderBody()</p>
             </div>
         </div>

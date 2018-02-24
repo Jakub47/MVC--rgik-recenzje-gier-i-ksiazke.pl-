@@ -1,0 +1,24 @@
+﻿@model IEnumerable<rgik.Models.Ksiazka>
+@using rgik.Infrastucture
+
+@{
+    ViewBag.Title = "Pozycje";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ul>
+    @foreach (var ksiazka in Model)
+    {
+        <li>
+            <a href="@Url.Action("Recenzja","Gra", new { nazwa = ksiazka.NazwaKsiazki })">
+                <div style="padding:20px; float:left;">
+                    <img src="@Url.ObrazkiSciezka(ksiazka.NazwaPlikuObrazka)" />
+                    <br />
+                    @ksiazka.NazwaKsiazki
+                    <br />
+                    @ksiazka.OpisSkrocony
+                </div>
+            </a>
+        </li>
+    }
+</ul>

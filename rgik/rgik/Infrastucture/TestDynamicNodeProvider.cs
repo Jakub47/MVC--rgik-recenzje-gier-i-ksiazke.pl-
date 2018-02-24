@@ -8,7 +8,7 @@ using System.Web;
 
 namespace rgik.Infrastucture
 {
-    public class rgikGrySzczegolyDynamicNodeProvider : DynamicNodeProviderBase
+    public class TestDynamicNodeProvider : DynamicNodeProviderBase
     {
         private rgikContext db = new rgikContext();
 
@@ -16,7 +16,7 @@ namespace rgik.Infrastucture
         {
             var returnValue = new List<DynamicNode>();
 
-            foreach(Gra gra in db.Gra)
+            foreach (Gra gra in db.Gra)
             {
                 DynamicNode node = new DynamicNode();
                 node.Title = gra.NazwaGry;

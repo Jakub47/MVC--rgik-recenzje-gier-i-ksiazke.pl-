@@ -1,14 +1,24 @@
 ﻿@model IEnumerable<rgik.Models.Gra>
-
+@using rgik.Infrastucture
 @{
     ViewBag.Title = "Pozycje";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Pozycje</h2>
+<ul>
+    @foreach (var gra in Model)
+    {
+        <li>
+            <a href="@Url.Action("Recenzja","Gra", new { nazwa = gra.NazwaGry })">
+                <div style="padding:20px; float:left;">
+                    <img src="@Url.ObrazkiSciezka(gra.NazwaPlikuObrazka)" />
+                    <br />
+                        @gra.NazwaGry
+                    <br />
+                       @gra.OpisSkrocony
+                </div>
+            </a>
+        </li>
+    }
+</ul>
 
-    @Html.MvcSiteMap().SiteMapPath();
-@foreach(var gra in Model)
-{
-    @gra.NazwaGry
-}

@@ -7,32 +7,26 @@ using System.Web.Mvc;
 
 namespace rgik.Controllers
 {
-    public class GraController : Controller
+    public class KsiazkaController : Controller
     {
         private rgikContext db = new rgikContext();
 
+        // GET: Ksiazka
         public ActionResult Index()
         {
             return View();
         }
 
-        [ChildActionOnly]   //<-- Akcja mogąca zostać wywołana tylko z poziomu innej akcji
-        public ActionResult GenerateRandomGames()
-        {
-            var gry = db.Gra.OrderBy(g => Guid.NewGuid()).Take(2).ToList();
-            return PartialView("_RandomGames",gry);
-        }
-
         [OutputCache(Duration = 60000)]
         public ActionResult Recenzja(string nazwa)
         {
-            var gra = db.Gra.Where(n => n.NazwaGry == nazwa).Single();
+            var gra = db.Ksiazka.Where(n => n.NazwaKsiazki == nazwa).Single();
 
             #region Validation
             if (gra == null)
             {
                 ViewBag.Blad = "Błąd";
-                return  RedirectToAction("Index", "Home");
+                return RedirectToAction("Index", "Home");
             }
             #endregion
 

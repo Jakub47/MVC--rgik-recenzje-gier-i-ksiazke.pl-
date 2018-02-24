@@ -8,7 +8,7 @@ using System.Web;
 
 namespace rgik.Infrastucture
 {
-    public class rgikKsiazkaSzczegolyDynamicNodeProvider : DynamicNodeProviderBase
+    public class KsiazkaSzczegolyDynamicNodeProvider : DynamicNodeProviderBase
     {
         private rgikContext db = new rgikContext();
 

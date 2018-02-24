@@ -1,0 +1,17 @@
+﻿@model rgik.Models.Ksiazka
+@using rgik.Infrastucture
+
+@{
+    ViewBag.Title = "Recenzja";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Recenzja</h2>
+
+
+<h2>@Model.NazwaKsiazki</h2>
+
+<img src="@Url.ObrazkiSciezka(Model.NazwaPlikuObrazka)" />
+<p>
+    @Model.Opis
+</p>
