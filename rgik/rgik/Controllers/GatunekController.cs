@@ -18,6 +18,8 @@ namespace rgik.Controllers
             return View();
         }
 
+
+        [OutputCache(Duration = 60000)]
         public ActionResult Elementy(string nazwaGatunku)
         {
 

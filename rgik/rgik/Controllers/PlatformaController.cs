@@ -17,6 +17,7 @@ namespace rgik.Controllers
             return View();
         }
 
+        [OutputCache(Duration = 60000)]
         public ActionResult Pozycje(string nazwa)
         {
             string search = "";
@@ -35,13 +36,3 @@ namespace rgik.Controllers
         }
     }
 }
-
-
-//[OutputCache(Duration = 60000)]
-//public ActionResult Pozycje(string typPlatformy)
-//{
-//    var platforma = db.Platforma.Where(p => p.NazwaPlatformy == typPlatformy).ToList();
-//    var gry = db.Gra.Where(p => p.PlatformaId == platforma.OrderBy(k => Guid.NewGuid()).Single().PlatformaId).ToList();
-
-//    return View(typPlatformy,gry);
-//}
