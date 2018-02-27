@@ -1,4 +1,5 @@
-﻿using rgik.Models;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using rgik.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,10 @@ using System.Web;
 
 namespace rgik.DAL
 {
-    public class rgikContext : DbContext
+    /// <summary>
+    /// With IdentityDbContext we will add every tables neccesary for users that is login,registers,roles etc.
+    /// </summary>
+    public class rgikContext : IdentityDbContext<ApplicationUser>
     {
         public rgikContext() : base("rgikContext")
         {
@@ -18,6 +22,11 @@ namespace rgik.DAL
         static rgikContext()
         {
             Database.SetInitializer<rgikContext>(new rgikInitializer());
+        }
+
+        public static rgikContext Create()
+        {
+            return new rgikContext();
         }
 
         public DbSet<Gra> Gra { get; set; }

@@ -133,3 +133,5 @@ C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--
 C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\Newtonsoft.Json.xml
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Ragnus\Desktop\ASP.NET - DYNAMIC WEBsites\Recenzje i gier ksiazek\MVC--rgik-recenzje-gier-i-ksiazke.pl-\rgik\rgik\bin\Microsoft.Owin.Host.SystemWeb.xml

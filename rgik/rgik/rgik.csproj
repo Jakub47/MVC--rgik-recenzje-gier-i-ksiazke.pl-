@@ -221,6 +221,7 @@
   <ItemGroup>
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\GatunekController.cs" />
     <Compile Include="Controllers\GraController.cs" />
@@ -260,6 +261,7 @@
     <Compile Include="Models\PublikacjaGry.cs" />
     <Compile Include="Models\PublikacjaKsiazki.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\AccountViewModel.cs" />
     <Compile Include="ViewModels\HomeViewModel.cs" />
   </ItemGroup>
