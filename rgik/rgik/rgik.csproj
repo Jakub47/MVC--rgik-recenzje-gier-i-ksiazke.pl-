@@ -246,8 +246,11 @@
       <DependentUpon>201802181850519_zmodyfikowaniePola.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\DaneUzytkownika.cs" />
     <Compile Include="Models\Gatunek.cs" />
     <Compile Include="Models\Gra.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Komentarz.cs" />
     <Compile Include="Models\Ksiazka.cs" />
     <Compile Include="Models\Platforma.cs" />
     <Compile Include="Models\PublikacjaGry.cs" />
